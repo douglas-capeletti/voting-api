@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: prd
+
+server:
+  port: 8085
+
+---
+
+# PROFILE TEST (LOCAL)
+spring:
+  datasource:
+    driver-class-name: ${DATABASE_DRIVER:org.h2.Driver}
+    password: ${DATABASE_PASSWORD:password}
+    url: ${DATABASE_URL:jdbc:h2:mem:voting}
+    username: ${DATABASE_USERNAME:sa}
+  h2:
+    console:
+      enabled: ${H2_DISABLE:true}
+      path: /h2
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  profiles: test

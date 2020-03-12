@@ -1,0 +1,27 @@
+version: "3"
+services:
+  client:
+    image: voting
+    ports:
+      - 8085:8090
+    environment:
+      - "DATABASE_URL=jdbc:postgresql://db:5432/voting"
+      - "DATABASE_USERNAME=voting"
+      - "DATABASE_PASSWORD=voting"
+      - "DATABASE_DRIVER=org.postgresql.Driver"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: voting
+      POSTGRES_USER: voting
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db

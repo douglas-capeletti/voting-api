@@ -1,0 +1,10 @@
+funcionalities:
+  - submit a topic
+  - open voting session
+  - receive votes
+  - count votes
+
+requirements:
+  - unique vote per associate
+  - boolean vote
+  - session has a duration time and the default value are 1 minute
