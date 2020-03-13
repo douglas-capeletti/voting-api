@@ -6,6 +6,7 @@ plugins {
     id("com.google.cloud.tools.jib") version "2.1.0"
     kotlin("jvm") version "1.3.70"
     kotlin("plugin.spring") version "1.3.70"
+    kotlin("plugin.jpa") version "1.3.70"
 }
 
 group = "br.com.drpaz"
