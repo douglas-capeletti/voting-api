@@ -20,7 +20,6 @@ class AssociateResource constructor(private val service: AssociateService) {
 
 
     @GetMapping
-    @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Find by associate cpf")
     @ApiResponses(
             ApiResponse(code = 200, message = "Resource successfully founded!"),
