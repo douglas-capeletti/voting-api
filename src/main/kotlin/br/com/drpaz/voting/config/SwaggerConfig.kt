@@ -31,7 +31,7 @@ class SwaggerConfig {
     private fun metaInfo(): ApiInfo {
         return ApiInfoBuilder()
                 .title("Voting API")
-                .description("An api to manage topics and session votes")
+                .description("An api to manage topics, sessions and votes")
                 .version("0.1.0")
                 .build()
     }

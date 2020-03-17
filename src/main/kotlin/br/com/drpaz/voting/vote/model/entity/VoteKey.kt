@@ -6,11 +6,10 @@ import javax.persistence.Embeddable
 
 @Embeddable
 class VoteKey : Serializable {
+    @field:Column(name = "session_id")
+    var sessionId: String? = null
 
-    @field:Column(name = "id_topic")
-    var topicId: String? = null
-
-    @field:Column(name = "id_associate")
+    @field:Column(name = "associate_id")
     var associateId: String? = null
 
     override fun equals(other: Any?): Boolean {
@@ -19,14 +18,14 @@ class VoteKey : Serializable {
 
         other as VoteKey
 
-        if (topicId != other.topicId) return false
+        if (sessionId != other.sessionId) return false
         if (associateId != other.associateId) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var result = topicId?.hashCode() ?: 0
+        var result = sessionId?.hashCode() ?: 0
         result = 31 * result + (associateId?.hashCode() ?: 0)
         return result
     }

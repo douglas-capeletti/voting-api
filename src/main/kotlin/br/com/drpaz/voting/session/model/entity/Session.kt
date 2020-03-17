@@ -20,6 +20,9 @@ data class Session(
         @field:OneToMany(mappedBy = "session")
         var votes: List<Vote>? = null,
 
+        @field:Column(name = "expiration_date")
+        var expirationDate: LocalDateTime? = null,
+
         @field:Column(name = "created_date")
         var createdDate: LocalDateTime? = null
 )

@@ -10,18 +10,23 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/v1/associates")
-class AssociateResource constructor(private val service: AssociateService) {
+class AssociateResource constructor(private val facade: AssociateFacade) {
 
-    @PostMapping
+    @PostMapping("/associate")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Register an new associate")
     @ApiResponses(ApiResponse(code = 201, message = "Resource successfully created!"))
-    fun create(@Valid create: AssociateCreate) = service.create(create)
+    fun create(@Valid create: AssociateCreate) = facade.create(create)
 
-
-    @GetMapping
-    @ApiOperation("Find by associate cpf")
+    @GetMapping("/associate")
+    @ApiOperation("Get by associate id")
     @ApiResponses(ApiResponse(code = 200, message = "Resource successfully founded!"))
-    fun findByCpf(@RequestParam cpf: String) = service.findByCPF(cpf)
+    fun getById(@PathVariable id: String) = facade.getById(id)
+
+
+    @GetMapping("/associate/cpf/{cpf}")
+    @ApiOperation("Get by associate cpf")
+    @ApiResponses(ApiResponse(code = 200, message = "Resource successfully founded!"))
+    fun getByCpf(@PathVariable cpf: String) = facade.getByCpf(cpf)
 
 }

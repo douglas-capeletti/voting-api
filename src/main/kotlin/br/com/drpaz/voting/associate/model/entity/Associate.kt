@@ -2,7 +2,6 @@ package br.com.drpaz.voting.associate.model.entity
 
 import br.com.drpaz.voting.vote.model.entity.Vote
 import org.hibernate.annotations.GenericGenerator
-import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity(name = "associate")
@@ -16,8 +15,5 @@ data class Associate(
         var cpf: String? = null,
 
         @field:OneToMany(mappedBy = "associate")
-        var votes: List<Vote>? = null,
-
-        @field:Column(name = "created_date")
-        var createdDate: LocalDateTime? = null
+        var votes: List<Vote>? = null
 )
