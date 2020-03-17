@@ -1,28 +1,28 @@
-## Running Locally
+# Running Locally
 
 - `./gradlew bootRun -Dspring.profiles.active=test`
 
-## Running with Docker
+# Running with Docker
 
-#### Build to local Registry command
+## Build to local Registry command
 Docker local are required
 
 - `./gradlew jibDockerBuild`
 
 and now you can...
 
-#### Run the application as container
+## Run the application as container
 The application will run with local docker
 
 - `docker-compose up`
 
 
-## Points of attention
+# Points of attention
 
-#### Duration serialization/deserialization
+## Duration serialization/deserialization
 The duration of the java has a specific format of serialization/deserialization to be applied which will be briefly explained here.
 
-##### This string format are based on the ISO-8601 duration format
+***This string format are based on the ISO-8601 duration format***
 
 ---
 
