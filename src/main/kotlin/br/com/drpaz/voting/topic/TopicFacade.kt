@@ -7,5 +7,6 @@ interface TopicFacade {
 
     fun create(create: TopicCreate): String
     fun getByName(name: String): List<TopicResponse>
+    fun getById(id: String): TopicResponse
 
 }

@@ -18,6 +18,10 @@ class TopicResource constructor(private val facade: TopicFacade) {
     @ApiResponses(ApiResponse(code = 201, message = "Resource successfully created!"))
     fun create(@Valid @RequestBody create: TopicCreate) = facade.create(create)
 
+    @GetMapping("/topic/{id}")
+    @ApiOperation("Get by id")
+    @ApiResponses(ApiResponse(code = 200, message = "Resource successfully founded!"))
+    fun getById(@PathVariable id: String) = facade.getById(id)
 
     @GetMapping("/topic/name/{name}")
     @ApiOperation("Get by topic name")

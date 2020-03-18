@@ -23,6 +23,15 @@ class TopicService constructor(private val repository: TopicRepository) : TopicF
                 .map { it.toResponse() }
     }
 
+    override fun getById(id: String): TopicResponse {
+        return repository
+                .findById(id)
+                .map { it.toResponse() }
+                .orElseThrow {
+                    throw ResourceNotFoundException("Topic")
+                }
+    }
+
     fun getTopicByIdOrThrows(id: String): Topic {
         return repository
                 .findById(id)
