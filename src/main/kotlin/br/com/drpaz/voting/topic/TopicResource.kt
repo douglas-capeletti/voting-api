@@ -16,7 +16,7 @@ class TopicResource constructor(private val facade: TopicFacade) {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Register an new topic")
     @ApiResponses(ApiResponse(code = 201, message = "Resource successfully created!"))
-    fun create(@Valid create: TopicCreate) = facade.create(create)
+    fun create(@Valid @RequestBody create: TopicCreate) = facade.create(create)
 
 
     @GetMapping("/topic/name/{name}")

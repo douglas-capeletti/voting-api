@@ -1,4 +1,4 @@
-package com.rbs.nossa.nossabackend.service.exception
+package br.com.drpaz.voting.commom.exception
 
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -15,21 +15,24 @@ import java.time.Instant
 class ResponseExceptionHandler : ResponseEntityExceptionHandler() {
 
     override fun handleMethodArgumentNotValid(ex: MethodArgumentNotValidException, headers: HttpHeaders, status: HttpStatus, request: WebRequest): ResponseEntity<Any> {
-        val customException: CustomException<List<String>> = CustomException(
-                Timestamp.from(Instant.now()),
-                HttpStatus.BAD_REQUEST.value(),
-                "Validation failed for object",
-                ex.bindingResult.fieldErrors.map { "${it.field}: ${it.defaultMessage}" },
-                (request as ServletWebRequest).request.requestURI ?: ""
-        )
-        return ResponseEntity.unprocessableEntity().body<Any>(customException)
+        return ResponseEntity
+                .unprocessableEntity()
+                .body(
+                        ValidationException(
+                                Timestamp.from(Instant.now()),
+                                HttpStatus.BAD_REQUEST.value(),
+                                "Validation failed for object",
+                                ex.bindingResult.fieldErrors.map { "${it.field}: ${it.defaultMessage}" },
+                                (request as ServletWebRequest).request.requestURI ?: ""
+                        )
+                )
     }
 }
 
-class CustomException<T>(
+data class ValidationException(
         val timestamp: Timestamp,
         val status: Int,
         val error: String,
-        val message: T,
+        val message: List<String>,
         val path: String
 )

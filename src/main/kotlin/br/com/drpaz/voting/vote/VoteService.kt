@@ -2,11 +2,11 @@ package br.com.drpaz.voting.vote
 
 import br.com.drpaz.voting.associate.AssociateService
 import br.com.drpaz.voting.associate.model.entity.Associate
+import br.com.drpaz.voting.commom.exception.ExpiredSessionException
+import br.com.drpaz.voting.commom.exception.UncheckedSaveResponseException
 import br.com.drpaz.voting.session.SessionService
 import br.com.drpaz.voting.session.model.entity.Session
 import br.com.drpaz.voting.util.Functions.isPaste
-import br.com.drpaz.voting.util.exception.ExpiredSessionException
-import br.com.drpaz.voting.util.exception.UncheckedSaveResponseException
 import br.com.drpaz.voting.vote.model.dto.VoteCountResponse
 import br.com.drpaz.voting.vote.model.dto.VoteCreate
 import br.com.drpaz.voting.vote.model.entity.Vote

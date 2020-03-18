@@ -1,11 +1,11 @@
 package br.com.drpaz.voting.topic
 
+import br.com.drpaz.voting.commom.exception.ResourceNotFoundException
+import br.com.drpaz.voting.commom.exception.UncheckedSaveResponseException
 import br.com.drpaz.voting.topic.model.dto.TopicCreate
 import br.com.drpaz.voting.topic.model.dto.TopicResponse
 import br.com.drpaz.voting.topic.model.entity.Topic
 import br.com.drpaz.voting.util.Functions.onlyOneOrThrow
-import br.com.drpaz.voting.util.exception.ResourceNotFoundException
-import br.com.drpaz.voting.util.exception.UncheckedSaveResponseException
 import org.springframework.stereotype.Service
 
 @Service

@@ -3,9 +3,10 @@ package br.com.drpaz.voting.associate
 import br.com.drpaz.voting.associate.model.dto.AssociateCreate
 import br.com.drpaz.voting.associate.model.dto.AssociateResponse
 import br.com.drpaz.voting.associate.model.entity.Associate
+import br.com.drpaz.voting.commom.exception.InvalidCpfException
+import br.com.drpaz.voting.commom.exception.ResourceNotFoundException
+import br.com.drpaz.voting.commom.exception.UncheckedSaveResponseException
 import br.com.drpaz.voting.util.Functions.onlyDigits
-import br.com.drpaz.voting.util.exception.ResourceNotFoundException
-import br.com.drpaz.voting.util.exception.UncheckedSaveResponseException
 import org.springframework.stereotype.Service
 
 @Service
@@ -37,7 +38,7 @@ class AssociateService constructor(private val repository: AssociateRepository) 
     private fun findEntityByCpf(cpf: String): List<Associate> {
         return cpf
                 .onlyDigits()
-                .apply { if (isEmpty()) throw RuntimeException("Invalid Cpf!") }
+                .apply { if (isEmpty()) throw InvalidCpfException() }
                 .run { repository.findByCpf(this) }
     }
 

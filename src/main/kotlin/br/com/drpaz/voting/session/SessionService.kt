@@ -1,5 +1,7 @@
 package br.com.drpaz.voting.session
 
+import br.com.drpaz.voting.commom.exception.ResourceNotFoundException
+import br.com.drpaz.voting.commom.exception.UncheckedSaveResponseException
 import br.com.drpaz.voting.session.model.dto.SessionCreate
 import br.com.drpaz.voting.session.model.dto.SessionResponse
 import br.com.drpaz.voting.session.model.entity.Session
@@ -7,8 +9,6 @@ import br.com.drpaz.voting.topic.TopicService
 import br.com.drpaz.voting.topic.TopicService.Companion.toResponse
 import br.com.drpaz.voting.topic.model.entity.Topic
 import br.com.drpaz.voting.util.Functions.isPaste
-import br.com.drpaz.voting.util.exception.ResourceNotFoundException
-import br.com.drpaz.voting.util.exception.UncheckedSaveResponseException
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 

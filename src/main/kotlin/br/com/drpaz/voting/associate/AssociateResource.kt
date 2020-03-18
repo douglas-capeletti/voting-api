@@ -16,13 +16,12 @@ class AssociateResource constructor(private val facade: AssociateFacade) {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Register an new associate")
     @ApiResponses(ApiResponse(code = 201, message = "Resource successfully created!"))
-    fun create(@Valid create: AssociateCreate) = facade.create(create)
+    fun create(@Valid @RequestBody create: AssociateCreate) = facade.create(create)
 
-    @GetMapping("/associate")
+    @GetMapping("/associate/{id}")
     @ApiOperation("Get by associate id")
     @ApiResponses(ApiResponse(code = 200, message = "Resource successfully founded!"))
     fun getById(@PathVariable id: String) = facade.getById(id)
-
 
     @GetMapping("/associate/cpf/{cpf}")
     @ApiOperation("Get by associate cpf")

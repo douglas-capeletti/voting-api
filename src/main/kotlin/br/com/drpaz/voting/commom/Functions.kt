@@ -1,7 +1,7 @@
 package br.com.drpaz.voting.util
 
-import br.com.drpaz.voting.util.exception.MoreThanOneException
-import br.com.drpaz.voting.util.exception.ResourceNotFoundException
+import br.com.drpaz.voting.commom.exception.MoreThanOneException
+import br.com.drpaz.voting.commom.exception.ResourceNotFoundException
 import java.time.LocalDateTime
 
 object Functions {

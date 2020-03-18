@@ -1,4 +1,4 @@
-package br.com.drpaz.voting.util.exception
+package br.com.drpaz.voting.commom.exception
 
 import org.springframework.http.HttpStatus.*
 import org.springframework.web.server.ResponseStatusException
@@ -7,3 +7,4 @@ class ResourceNotFoundException constructor(resource: String) : ResponseStatusEx
 class MoreThanOneException constructor(resource: String) : ResponseStatusException(UNPROCESSABLE_ENTITY, "More than one $resource found")
 class ExpiredSessionException : ResponseStatusException(UNPROCESSABLE_ENTITY, "This Session is now closed!")
 class UncheckedSaveResponseException : ResponseStatusException(INTERNAL_SERVER_ERROR, "Internal error, please verify if the resource has been saved!")
+class InvalidCpfException : ResponseStatusException(UNPROCESSABLE_ENTITY, "Invalid Cpf!")
